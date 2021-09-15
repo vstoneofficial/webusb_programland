@@ -1,0 +1,294 @@
+#menuArea {
+
+  width: 100%;
+  height: auto;
+  background: #ffd700;
+  padding: 0.5rem;
+
+  border-bottom-style: outset;
+  border-bottom-width: initial;
+  font-size:0.8rem;
+}
+
+
+button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  background-size: cover;
+  outline:none;
+  width: 4rem;
+  height: 3rem;
+  margin: 0rem 0.35rem;
+  cursor:auto;
+}
+
+button:hover{
+  cursor:pointer;    
+}
+button:active{
+  cursor:pointer;    
+}
+
+.newButton{
+    background-image: url(../img/ui/builder_image-25.png);
+}
+.newButton:hover{
+    background-image: url(../img/ui/builder_image-31.png);
+}
+.newButton:active{
+    background-image: url(../img/ui/builder_image-37.png);
+}
+
+.saveButton {
+    background-image: url(../img/ui/builder_image-27.png);
+}
+.saveButton:hover{
+    background-image: url(../img/ui/builder_image-33.png);
+}
+.saveButton:active{
+    background-image: url(../img/ui/builder_image-39.png);
+}
+
+.loadButton {
+    background-image: url(../img/ui/builder_image-26.png);
+}
+.loadButton:hover{
+    background-image: url(../img/ui/builder_image-32.png);
+}
+.loadButton:active{
+    background-image: url(../img/ui/builder_image-38.png);
+}
+
+.undoButton {
+    background-image: url(../img/ui/builder_image-28.png);
+}
+.undoButton:hover{
+    background-image: url(../img/ui/builder_image-34.png);
+}
+.undoButton:active{
+    background-image: url(../img/ui/builder_image-40.png);
+}
+
+.redoButton {
+    background-image: url(../img/ui/builder_image-29.png);
+}
+.redoButton:hover{
+    background-image: url(../img/ui/builder_image-35.png);
+}
+.redoButton:active{
+    background-image: url(../img/ui/builder_image-41.png);
+}
+
+.playButton {
+    background-image: url(../img/ui/builder_image-30.png);
+}
+.playButton:hover{
+    background-image: url(../img/ui/builder_image-36.png);
+}
+.playButton:active{
+    background-image: url(../img/ui/builder_image-42.png);
+}
+
+.stopButton {
+    background-image: url(../img/ui/builder_image-44.png);
+}
+.stopButton:hover{
+    background-image: url(../img/ui/builder_image-45.png);
+}
+.stopButton:active{
+    background-image: url(../img/ui/builder_image-46.png);
+}
+
+.resetButton {
+    background-image: url(../img/ui/resetbtn1.png);
+}
+.resetButton:hover{
+    background-image: url(../img/ui/resetbtn2.png);
+}
+.resetButton:active{
+    background-image: url(../img/ui/resetbtn3.png);
+}
+
+.convertButton {
+    background-image: url(../img/ui/cvbtn1.png);
+}
+.convertButton:hover{
+    background-image: url(../img/ui/cvbtn2.png);
+}
+.convertButton:active{
+    background-image: url(../img/ui/cvbtn3.png);
+}
+
+
+.myconnectButton {
+    background-image: url(../img/ui/builder_image_47.png);
+}
+.myconnectButton:hover{
+    background-image: url(../img/ui/builder_image_47b.png);
+}
+.myconnectButton:active{
+    background-image: url(../img/ui/builder_image_47a.png);
+}
+
+.disconnectButton {
+    background-image: url(../img/ui/builder_image_48.png);
+}
+.disconnectButton:hover{
+    background-image: url(../img/ui/builder_image_48b.png);
+}
+.disconnectButton:active{
+    background-image: url(../img/ui/builder_image_48a.png);
+}
+
+.mywriteButton {
+    background-image: url(../img/ui/builder_image_49.png);
+}
+.mywriteButton:hover{
+    background-image: url(../img/ui/builder_image_49b.png);
+}
+.mywriteButton:active{
+    background-image: url(../img/ui/builder_image_49a.png);
+}
+
+.memmapButton {
+    background-image: url(../img/ui/builder_image_50.png);
+}
+.memmapButton:hover{
+    background-image: url(../img/ui/builder_image_50b.png);
+}
+.memmapButton:active{
+    background-image: url(../img/ui/builder_image_50a.png);
+}
+
+
+#buttonArea{
+  vertical-align: center;    
+  display: inline-block;
+}
+
+#statusArea{
+  /*display: inline-block;*/
+}
+
+#sensorArea {
+
+  background: #ffffff;
+  border-color: #696969;
+
+  border-style: solid;
+  border-width: thin;
+  /*margin: 0rem 1rem 0rem 2rem;*/
+  display: inline-block;
+  vertical-align: top;
+  padding: 0.06rem
+  /*width:18rem;*/
+}
+
+.sensorValue{
+    padding: 0rem 1rem;
+    text-align: left;
+    margin-right: 0.5rem;
+}
+
+
+.fieldSelect{
+  display: inline-block;
+  vertical-align: top;
+}
+
+select{
+  /*font-size: 1rem;*/
+  padding: 0.15rem;
+  margin-bottom: -0.5rem;
+  border-style: solid;
+  border-width: thin;
+  border-color: #696969;
+}
+
+.commentArea{
+  font-size: 0.7rem;
+  /*padding: 0.15rem;*/
+  background-color: #fff;
+  border-style: solid;
+  border-width: thin;
+  border-color: #696969;
+}
+
+#blocklyDiv{
+  width:100%;
+  height:100%;
+}
+
+#enchant-stage{
+  width:100%;
+  height:100%;
+}
+
+#overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 1
+}
+
+.mymodal-content {
+    position:fixed;
+    display:none;
+    z-index:2;
+    width:50%;
+    margin:0;
+    padding:10px 20px;
+    border:2px solid #aaa;
+    background:#fff;
+}
+
+.mymodal-content p {
+    margin:0;
+    padding:0;
+}
+
+.mymodal-overlay {
+    z-index:1;
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:120%;
+    background-color:rgba(0,0,0,0.75);
+}
+
+button.cvbutton{
+    background-color: #ccc;
+    border-style: none;
+    width:8em;
+    height: 2em;
+    color: #000;
+    /*font-weight: normal;*/
+}
+
+button.cvbutton:hover{
+    background-color: #ddd;
+    border-style: solid;
+    border-color: #666;
+    width:8em;
+    height: 2em;
+    color: #333;
+    /*font-weight: bold;*/
+}
+
+button.cvbutton:active{
+    background-color: #ccc;
+    border-style: solid;
+    border-color: #666;
+    width:8em;
+    height: 2em;
+    color: #fff;
+    font-weight: bold;
+}
+  

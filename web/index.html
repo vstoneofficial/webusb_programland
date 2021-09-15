@@ -1,0 +1,138 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+
+        <title>プログラムランド webUSB版</title>
+        <script src="./js/jsframe.min.js"></script>
+        <script src="./js/blockly_compressed.js"></script>
+        <script src="./js/blocks_compressed.js"></script>
+        <script src="./msg/js/ja.js"></script>
+        <script src="./js/blockly_blocks.js"></script>
+        <script src="./js/blockly_functions.js"></script>
+        <script src="./js/gui.js"></script>
+
+    	<script src="./js/serial.js"></script>
+    	<script src="./js/robot.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    </head>
+
+    <body>
+
+        <div id="menuArea">
+            <div id="buttonArea" style="margin-right: 0.5rem;">
+                <div>
+                    <button onclick="BLOCKAREA.newProject()" class="newButton"></button>
+                    <button onclick="BLOCKAREA.saveProject()" class="saveButton"></button>
+                    <span id="loadFile"><input onchange="BLOCKAREA.loadProject()" type="file" id="file_api_input" style="display:none;"></input></span>
+                    <button onclick="BLOCKAREA.clickLoadButton()" class="loadButton"></button>
+                    <button onclick="BLOCKAREA.undo()" class="undoButton"></button>
+                    <button onclick="BLOCKAREA.redo()" class="redoButton"></button>
+                    <button id="connectButton" onclick="ROBOT.conn()" class="myconnectButton"></button>
+                    <button id="playButton" onclick="GUI.pushPlayButton()" class="playButton"></button>
+                    <button id="writeButton" onclick="BLOCKAREA.makeCode(false)" class="mywriteButton"></button>
+                    <button id="memmapwindow" onclick="openmemmapwindow()" class="memmapButton"></button>
+                    <!-- <button  onclick="BLOCKAREA.makeCode(false)" >コード生成</button> -->
+                    
+                </div>
+                <div style="margin-top: 10px;">
+                    <div style="margin:5px;display: inline-block; vertical-align:top;">
+                        <div><label>センサ値</label></div>
+
+                        <div id="sensorArea" >
+                        	<div>
+								<div id="sensor1" style="display:inline-block;width:8em;">センサ1:</div>
+								<div id="sensor2" style="display:inline-block;width:8em;">センサ2:</div>
+	    	                </div>
+            	            <div>
+								<div id="sensor3" style="display:inline-block;width:8em;">センサ3:</div>
+								<div id="sensor4" style="display:inline-block;width:8em;">センサ4:</div>
+	            	        </div>
+                    	    <div>
+								<div id="sensor_temp" style="display:inline-block;width:8em;">気温:</div>
+								<div id="sensor_hum"  style="display:inline-block;width:8em;">湿度:</div>
+	                    	</div>
+	                    </div>
+                    </div>
+                    <div style="margin:5px;display: inline-block; vertical-align:top;">
+                        <div><label>プログラム転送率</label></div>
+					    <div><progress id="writeprogress" max="100" value="70">70%</progress></div>
+                    </div>
+                    <div style="margin:5px;display: inline-block; vertical-align:top;">
+                        <div><label>ツールボックスの選択</label></div>
+                        <div id="sensorArea">
+                            <label><input type="radio" name="toolboxtype" value="toolboxBeginner" onclick="GUI.selectToolBox('toolboxBeginner')" checked>初心者</label>
+                            <label><input type="radio" name="toolboxtype" value="toolboxPro" onclick="GUI.selectToolBox('toolboxPro')">上級者</label>
+                        </div>
+                    </div>
+                    <div style="margin:5px;display: inline-block; vertical-align:top;">
+                        <div><label>通信速度</label></div>
+                        <div><input type="number" value="30"  min="30" max="1000"  id="comm_interval" style="width:50px;"/>msec</div>
+                    </div>
+                    <div style="margin:5px;display: inline-block; vertical-align:top;">
+                        <div><label>関連情報</label></div>
+                        <div><label><a href="https://www.vstone.co.jp/robotshop/blog/archives/3724" target="_blank">解説blog</a></label></div>
+                        <div><label><a href="https://github.com/vstoneofficial/webusb_programland" target="_blank">ファームウェア</a></label></div>
+                        <div><label><a href="download/programland_webusb_win_release1.zip" target="_blank">Windows用アプリ</a></label></div>
+                        <div><label><a href="https://itunes.apple.com/jp/app/id1582972741?mt=8" target="_blank">iOS用アプリ</a></label></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="blocklyDiv" style="width:100%;height:100%;"></div>
+
+        <script>
+            if(!document.createElement('canvas').getContext) alert('このブラウザでは実行できません。');
+
+            if(window.navigator.userAgent.indexOf('Android')) document.getElementById('comm_interval').value=100;
+
+            // F5キーによるreloadを抑制する
+            document.addEventListener("keydown", function (e) {
+            
+                if ((e.which || e.keyCode) == 116 ) {
+                    var res = confirm("ページをリロードすると、現在作成しているプログラムが消えます。\nよろしいですか?");
+                    if( res!=true ) e.preventDefault();
+                }
+            });
+
+			ROBOT.thread();
+            GUI.start();
+
+            const MEMMAPWINDOW_NAME='MemoryMap';
+            const jsFrame = new JSFrame();
+
+            var frame = null;
+
+            function createMemmapWindow(){
+                return jsFrame.create({
+                    name: MEMMAPWINDOW_NAME,
+                    title: `メモリマップ`,
+                    left: 100, top: 140, width: 400, height: 260,
+                    minWidth: 160, minHeight: 100,
+                    //appearanceName: 'yosemite',
+                    style: {
+                        backgroundColor: 'rgba(255,255,255,0.9)',
+                        overflow: 'auto'
+                    },
+                    html: ROBOT.makeMemmapHtml()
+                });
+            }
+
+            function openmemmapwindow(){
+                if(frame==null || !jsFrame.containsWindowName(MEMMAPWINDOW_NAME)){
+                    frame = createMemmapWindow();
+                    frame.show();
+                }
+                else frame.closeFrame();
+            }
+
+
+        </script>
+
+    
+    </body>
+</html>

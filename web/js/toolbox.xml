@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<toolboxes>
+    <toolbox>
+        <id>toolboxBeginner</id>
+        <sep gap="3"></sep>
+        <category name="ライト" colour="60">
+            <!--block type="led_base_red"></block-->
+            <block type="led_base">
+                <field name="LEDCOLOR">#ff0000</field>
+                <value name="VALUE">
+                    <block type="do_sec">
+                        <field name="FIELDNAME">0.5</field>
+                    </block>
+                </value>
+            </block>
+            <!--block type="led_base_red"></block-->
+            <block type="led_base">
+                <field name="LEDCOLOR">#00ff00</field>
+                <value name="VALUE">
+                    <block type="do_sec">
+                        <field name="FIELDNAME">0.5</field>
+                    </block>
+                </value>
+            </block>
+            <block type="led_base">
+                <field name="LEDCOLOR">#ff0000</field>
+            </block>
+            <!--block type="led_base_red"></block-->
+            <block type="led_base">
+                <field name="LEDCOLOR">#00ff00</field>
+            </block>
+
+        </category>
+        <sep gap="3"></sep>
+
+        <category name="ブザー" colour="210">
+            <!--block type="led_base_red"></block-->
+            <block type="buzzer_base">
+                <field name="BUZ_OCTAVE">2</field>
+                <field name="BUZ_TONE">1</field>
+                <field name="BUZ_TIME">48</field>
+                <field name="BUZ_NEXT">1</field>
+            </block>
+            <block type="buzzer_base">
+                <field name="BUZ_OCTAVE">3</field>
+                <field name="BUZ_TONE">1</field>
+                <field name="BUZ_TIME">48</field>
+                <field name="BUZ_NEXT">1</field>
+            </block>
+            <block type="buzzer_base">
+                <field name="BUZ_OCTAVE">1</field>
+                <field name="BUZ_TONE">1</field>
+                <field name="BUZ_TIME">48</field>
+                <field name="BUZ_NEXT">1</field>
+            </block>
+            <!--block type="led_base_red"></block-->
+            <block type="buzzer_base">
+                <field name="BUZ_OCTAVE">0</field>
+                <field name="BUZ_TONE">1</field>
+                <field name="BUZ_TIME">48</field>
+                <field name="BUZ_NEXT">0</field>
+            </block>
+
+        </category>
+        <sep gap="3"></sep>
+
+        <category name="つづける" colour="290">
+
+            <block type="wait_base">
+                <value name="VALUE">
+                    <shadow type="do_sec">
+                        <field name="FIELDNAME">1</field>
+                    </shadow>
+                </value>                    
+            </block>
+
+            <block type="do_sec"></block>
+        </category>
+
+        <sep gap="3"></sep>
+        <category name="くり返し" colour="350">
+            <block type="loop_base"></block>
+            <block type="endlessloop_base"></block>
+        </category>
+        <sep gap="3"></sep>
+
+        <category name="はい/いいえ" colour="120">
+            <block type="if_base">
+                <field name="CMP">TEMP</field>
+            </block>
+            <block type="ifelse_base">
+                <field name="CMP">TEMP</field>
+            </block>
+            <block type="random_base"></block>
+        </category>
+        <sep gap="3"></sep>
+
+        <category name="おわり" colour="20">
+            <block type="end"></block>
+        </category>
+    </toolbox>
+
+
+
+    <toolbox>
+        <id>toolboxPro</id>
+        <sep gap="3"></sep>
+        <category name="ライト" colour="60">
+            <block type="pro_led_base">
+                <field name="LEDCOLOR">#ff0000</field>
+            </block>
+            <!--block type="led_base_red"></block-->
+            <block type="pro_led_base">
+                <field name="LEDCOLOR">#00ff00</field>
+            </block>
+
+            <block type="pro_led_base">
+                <field name="LEDCOLOR">#ff0000</field>
+                <value name="VALUE">
+                    <block type="do_sec">
+                        <field name="FIELDNAME">0.5</field>
+                    </block>
+                </value>
+            </block>
+            <!--block type="led_base_red"></block-->
+            <block type="pro_led_base">
+                <field name="LEDCOLOR">#00ff00</field>
+                <value name="VALUE">
+                    <block type="do_sec">
+                        <field name="FIELDNAME">0.5</field>
+                    </block>
+                </value>
+            </block>
+        </category>
+        <sep gap="3"></sep>
+
+        <category name="ブザー" colour="210">
+            <!--block type="led_base_red"></block-->
+            <block type="buzzer_base">
+                <field name="BUZ_OCTAVE">2</field>
+                <field name="BUZ_TONE">1</field>
+                <field name="BUZ_TIME">48</field>
+                <field name="BUZ_NEXT">1</field>
+            </block>
+            <block type="buzzer_base">
+                <field name="BUZ_OCTAVE">3</field>
+                <field name="BUZ_TONE">1</field>
+                <field name="BUZ_TIME">48</field>
+                <field name="BUZ_NEXT">1</field>
+            </block>
+            <block type="buzzer_base">
+                <field name="BUZ_OCTAVE">1</field>
+                <field name="BUZ_TONE">1</field>
+                <field name="BUZ_TIME">48</field>
+                <field name="BUZ_NEXT">1</field>
+            </block>
+            <!--block type="led_base_red"></block-->
+            <block type="buzzer_base">
+                <field name="BUZ_OCTAVE">0</field>
+                <field name="BUZ_TONE">1</field>
+                <field name="BUZ_TIME">48</field>
+                <field name="BUZ_NEXT">0</field>
+            </block>
+
+        </category>
+        <sep gap="3"></sep>
+<!--
+        <category name="モータ" colour="210">
+
+            <block type="pro_move_value">
+                <field name="lspd">50</field>
+                <field name="rspd">50</field>
+                <value name="VALUE">
+                    <block type="do_sec">
+                        <field name="FIELDNAME">1</field>
+                    </block>
+                </value>                    
+            </block>
+
+            <block type="pro_move_value">
+                <field name="lspd">0</field>
+                <field name="rspd">0</field>
+            </block>
+        </category>
+        <sep gap="3"></sep>
+ -->
+
+        <category name="つづける" colour="290">
+
+            <block type="wait_base">
+                <value name="VALUE">
+                    <shadow type="do_sec">
+                        <field name="FIELDNAME">1</field>
+                    </shadow>
+                </value>                    
+            </block>
+            <block type="do_sec"></block>
+        </category>
+
+        <sep gap="3"></sep>
+        <category name="変数演算" colour="36">
+
+            <block type="pro_calc">
+                <value name="OPERAND 1">
+                    <shadow type="variable">
+                        <field name="FIELDNAME">18</field>
+                    </shadow>
+                </value>                    
+                <value name="OPERAND 2">
+                    <shadow type="constant">
+                        <field name="FIELDNAME">10</field>
+                    </shadow>
+                </value>                    
+            </block>
+            <block type="pro_calc">
+                <value name="OPERAND 1">
+                    <shadow type="variable">
+                        <field name="FIELDNAME">18</field>
+                    </shadow>
+                </value>                    
+                <value name="OPERAND 2">
+                    <shadow type="variable">
+                        <field name="FIELDNAME">7</field>
+                    </shadow>
+                </value>                    
+            </block>
+
+        </category>
+        <sep gap="3"></sep>
+        <category name="くり返し" colour="350">
+            <block type="loop_base"></block>
+            <block type="endlessloop_base"></block>
+
+            <block type="pro_loop_base">
+                <value name="OPERAND 1">
+                    <shadow type="variable">
+                        <field name="FIELDNAME">7</field>
+                    </shadow>
+                </value>                    
+                <value name="OPERAND 2">
+                    <shadow type="constant">
+                        <field name="FIELDNAME">28</field>
+                    </shadow>
+                </value>                    
+            </block>
+
+            <block type="pro_loop_base">
+                <value name="OPERAND 1">
+                    <shadow type="variable">
+                        <field name="FIELDNAME">7</field>
+                    </shadow>
+                </value>                    
+                <value name="OPERAND 2">
+                    <shadow type="variable">
+                        <field name="FIELDNAME">18</field>
+                    </shadow>
+                </value>                    
+            </block>
+
+            <block type="pro_break"></block>
+        </category>
+        <sep gap="3"></sep>
+
+        <category name="はい/いいえ" colour="120">
+            <block type="pro_if_base">
+                <value name="OPERAND 1">
+                    <shadow type="variable">
+                        <field name="FIELDNAME">7</field>
+                    </shadow>
+                </value>                    
+                <value name="OPERAND 2">
+                    <shadow type="constant">
+                        <field name="FIELDNAME">28</field>
+                    </shadow>
+                </value>                    
+            </block>
+
+            <block type="pro_if_base">
+                <value name="OPERAND 1">
+                    <shadow type="variable">
+                        <field name="FIELDNAME">7</field>
+                    </shadow>
+                </value>                    
+                <value name="OPERAND 2">
+                    <shadow type="variable">
+                        <field name="FIELDNAME">18</field>
+                    </shadow>
+                </value>                    
+            </block>
+
+            <block type="pro_ifelse_base">
+                <value name="OPERAND 1">
+                    <shadow type="variable">
+                        <field name="FIELDNAME">7</field>
+                    </shadow>
+                </value>                    
+                <value name="OPERAND 2">
+                    <shadow type="constant">
+                        <field name="FIELDNAME">28</field>
+                    </shadow>
+                </value>                    
+            </block>
+
+            <block type="pro_ifelse_base">
+                <value name="OPERAND 1">
+                    <shadow type="variable">
+                        <field name="FIELDNAME">7</field>
+                    </shadow>
+                </value>                    
+                <value name="OPERAND 2">
+                    <shadow type="variable">
+                        <field name="FIELDNAME">18</field>
+                    </shadow>
+                </value>                    
+            </block>
+
+        </category>
+        <sep gap="3"></sep>
+
+        <category name="おわり" colour="20">
+            <block type="end"></block>
+        </category>
+    </toolbox>
+
+    <toolbox>
+        <id>toolboxPlaying</id>
+        <category name="※プログラム実行中は追加できません">
+        </category>
+    </toolbox>
+</toolboxes>
